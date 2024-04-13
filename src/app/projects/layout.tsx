@@ -1,9 +1,5 @@
-import { IRoute, Navbar } from '../components/navbar';
-
-const projectsRoutes: IRoute[] = [
-  { url: '/projects/websites', text: 'Websites' },
-  { url: '/projects/games', text: 'Games' },
-];
+import { Navigation } from '../_components/navbar';
+import { projectsRoutes } from '../_lib/routes';
 
 export default function ProjectsLayout({
   children,
@@ -12,7 +8,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <section>
-      <Navbar routes={projectsRoutes} />
+      <Navigation routes={projectsRoutes} />
       {children}
     </section>
   );
