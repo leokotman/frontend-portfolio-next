@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --navbar-height: 5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,10 +27,25 @@ body {
     rgb(var(--background-start-rgb));
   min-height: 100vh;
 
-  header {
+  h1,
+  h2,
+  p {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .navbar {
     width: 100%;
-    height: 5rem;
-    background-color: #11005c;
+    height: var(--navbar-height);
+  }
+  .navbar-header {
+    background-color: rgb(17, 0, 92);
+  }
+  .navbar-footer {
+    background-color: rgb(17, 0, 92, 0.3);
+  }
+
+  main {
+    min-height: calc(100vh - var(--navbar-height) * 2);
   }
 }
 
