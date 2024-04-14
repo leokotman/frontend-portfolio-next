@@ -3,8 +3,7 @@ import Image from 'next/image';
 
 export default function Websites() {
   return (
-    <div>
-      Websites
+    <section className="flex flex-col gap-6 items-center">
       {PROJECTS.map((project) => {
         return (
           <a key={project.imgSrc} href={project.link} target="_blank">
@@ -17,6 +16,6 @@ export default function Websites() {
           </a>
         );
       })}
-    </div>
+    </section>
   );
 }

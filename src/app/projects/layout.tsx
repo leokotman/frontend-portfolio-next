@@ -1,4 +1,4 @@
-import { Navigation } from '../_components/navbar';
+import { Navigation } from '../_components/navbar/navbar';
 import { projectsRoutes } from '../_lib/routes';
 
 export default function ProjectsLayout({
@@ -7,9 +7,9 @@ export default function ProjectsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <main>
       <Navigation routes={projectsRoutes} />
       {children}
-    </section>
+    </main>
   );
 }

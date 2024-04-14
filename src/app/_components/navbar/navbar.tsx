@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { IRoute } from '../_lib/types';
+import { IRoute } from '../../_lib/types';
 import styles from './navbar.module.scss';
 
 interface NavbarParams {
@@ -23,7 +23,7 @@ export function Navigation(params: NavbarParams) {
 
   return (
     <nav>
-      <ul className={`flex flex-row justify-around ${classes.ul}`}>
+      <ul className={`flex flex-row px-10 py-4 justify-around ${classes.ul}`}>
         {routes.map((route) => (
           <li key={route.url} className={classes.li}>
             <Link

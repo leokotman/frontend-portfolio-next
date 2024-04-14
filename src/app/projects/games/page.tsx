@@ -2,8 +2,7 @@ import Image from 'next/image';
 
 export default function Games() {
   return (
-    <div>
-      Games
+    <section className="flex flex-row gap-6 justify-center">
       <a
         href="https://leokotman.github.io/monster-game/"
         target="_blank"
@@ -28,6 +27,6 @@ export default function Games() {
           width="400"
         />
       </a>
-    </div>
+    </section>
   );
 }
