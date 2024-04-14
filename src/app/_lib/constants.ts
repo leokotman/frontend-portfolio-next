@@ -64,19 +64,6 @@ export const SKILLS = {
   ],
 };
 
-export const CONTACTS = {
-  address: 'Montenegro, Herceg Novi',
-  phone: '+382(68)498-108',
-  webLinks: [
-    { name: 'My Github profile', link: 'https://github.com/leokotman' },
-    { name: 'levkotman@gmail.com', link: 'mailto:levkotman@gmail.com' },
-    {
-      name: 'LinkedIn profile',
-      link: 'https://www.linkedin.com/in/lev-kotman-1892031ba/',
-    },
-  ],
-};
-
 export const PROJECTS = [
   {
     link: 'https://leokotman.github.io/local_lang_vue/',

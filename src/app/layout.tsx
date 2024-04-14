@@ -4,6 +4,7 @@ import './globals.css';
 import { Navigation } from './_components/navbar/navbar';
 import { homeRoutes } from './_lib/routes';
 import Footer from './_components/footer/footer';
+import { useContacts } from './_lib/hooks';
 
 const inter = Inter({ subsets: ['latin'] });
 
