@@ -2,4 +2,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr) 4fr;
   gap: 10px;
+  font-size: 1.1rem;
+}
+
+.point {
+  list-style-type: circle;
+  margin: 0 2rem;
 }

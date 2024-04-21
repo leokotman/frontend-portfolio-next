@@ -1,4 +1,4 @@
-import { Navigation } from '../_components/navbar/navbar';
+import { Navbar } from '../_components/navbar/navbar';
 import { projectsRoutes } from '../_lib/routes';
 
 export default function ProjectsLayout({
@@ -8,7 +8,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <main>
-      <Navigation routes={projectsRoutes} />
+      <Navbar routes={projectsRoutes} />
       {children}
     </main>
   );

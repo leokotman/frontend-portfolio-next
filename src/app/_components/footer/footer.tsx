@@ -4,6 +4,7 @@ import { MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import classes from './footer.module.scss';
 
 import { useAppContext } from '../context/context';
+import { Button } from '../button/button';
 
 interface FooterParams {
   propClasses?: string;
@@ -15,14 +16,14 @@ export default function Footer(params: FooterParams) {
 
   return (
     <div className={`${classes.footer} ${propClasses}`}>
-      <p>
+      <div className="flex items-center">
         <MapPinIcon className="h-6 w-6" />
-        {contacts[0]?.address}
-      </p>
-      <p>
+        <Button color="teal">{contacts[0]?.address}</Button>
+      </div>
+      <div className="flex items-center">
         <PhoneIcon className="h-6 w-6" />
-        {contacts[0]?.phone}
-      </p>
+        <Button color="teal">{contacts[0]?.phone}</Button>
+      </div>
     </div>
   );
 }
