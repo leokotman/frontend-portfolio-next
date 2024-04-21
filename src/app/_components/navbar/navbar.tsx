@@ -9,7 +9,7 @@ interface NavbarParams {
   routes: Array<IRoute>;
 }
 
-export function Navigation(params: NavbarParams) {
+export function Navbar(params: NavbarParams) {
   const pathname = usePathname();
   const { routes } = params;
   const classes = styles;
@@ -27,7 +27,7 @@ export function Navigation(params: NavbarParams) {
         {routes.map((route) => (
           <li key={route.url} className={classes.li}>
             <Link
-              className={`link ${getActiveClass(route)} ${classes.a}`}
+              className={`link ${getActiveClass(route)} ${classes.navlink}`}
               href={route.url}
             >
               {route.text}
