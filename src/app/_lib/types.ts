@@ -18,4 +18,5 @@ export interface IContactsFromDB {
   address: string;
   phone: string;
   weblinks: Array<IWeblink>;
+  email: string;
 }

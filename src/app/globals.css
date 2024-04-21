@@ -45,7 +45,8 @@ body {
   }
 
   main {
-    min-height: calc(100vh - var(--navbar-height) * 2);
+    height: calc(100vh - var(--navbar-height) * 2);
+    overflow: auto;
   }
 }
 
