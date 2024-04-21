@@ -13,12 +13,21 @@
   font-size: 1.2rem;
 }
 
-.a {
+.navlink {
   text-decoration: none;
   cursor: pointer;
   padding: 0.5rem 1.5rem;
   display: inline-block;
   color: white;
+  background-color: rgb(17, 0, 92, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+
+  &:hover {
+    box-shadow: 5px 5px 5px gray;
+    border: 1px solid gray;
+  }
 }
 
 .active {

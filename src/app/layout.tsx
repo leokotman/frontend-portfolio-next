@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Navigation } from './_components/navbar/navbar';
+import { Navbar } from './_components/navbar/navbar';
 import { homeRoutes } from './_lib/routes';
 import Footer from './_components/footer/footer';
 import AppContextProvider from './_components/context/context';
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppContextProvider>
           <header className="navbar navbar-header">
-            <Navigation routes={homeRoutes} />
+            <Navbar routes={homeRoutes} />
           </header>
           {children}
           <footer className="navbar navbar-footer">
