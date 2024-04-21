@@ -1,6 +1,9 @@
+'use client';
+
 import { MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import classes from './footer.module.scss';
-import { CONTACTS } from '@/app/_lib/constants';
+
+import { useAppContext } from '../context/context';
 
 interface FooterParams {
   propClasses?: string;
@@ -8,15 +11,17 @@ interface FooterParams {
 
 export default function Footer(params: FooterParams) {
   const { propClasses = '' } = params;
+  const { contacts } = useAppContext();
+
   return (
     <div className={`${classes.footer} ${propClasses}`}>
       <p>
         <MapPinIcon className="h-6 w-6" />
-        {CONTACTS.address}
+        {contacts[0]?.address}
       </p>
       <p>
         <PhoneIcon className="h-6 w-6" />
-        {CONTACTS.phone}
+        {contacts[0]?.phone}
       </p>
     </div>
   );
