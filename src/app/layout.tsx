@@ -4,7 +4,7 @@ import './globals.css';
 import { Navigation } from './_components/navbar/navbar';
 import { homeRoutes } from './_lib/routes';
 import Footer from './_components/footer/footer';
-import { useContacts } from './_lib/hooks';
+import AppContextProvider from './_components/context/context';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,13 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="navbar navbar-header">
-          <Navigation routes={homeRoutes} />
-        </header>
-        {children}
-        <footer className="navbar navbar-footer">
-          <Footer />
-        </footer>
+        <AppContextProvider>
+          <header className="navbar navbar-header">
+            <Navigation routes={homeRoutes} />
+          </header>
+          {children}
+          <footer className="navbar navbar-footer">
+            <Footer />
+          </footer>
+        </AppContextProvider>
       </body>
     </html>
   );
