@@ -114,6 +114,14 @@ export const PROJECTS = [
     projectText: 'Play drums on Vanilla JS',
   },
   {
+    link: 'https://leokotman.github.io/spa-portfolio2',
+    imgSrc: '8.png',
+    alt: 'vuejs-spa-portfolio',
+    width: 480,
+    height: 350,
+    projectText: 'VueJs SPA Portfolio (previous portfolio)',
+  },
+  {
     link: 'https://leokotman.github.io/My-portfolio/',
     imgSrc: '5.png',
     alt: 'project5-first-portfolio',
