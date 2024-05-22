@@ -9,7 +9,14 @@ export const EXPERIENCES: IExperience[] = [
     company: 'Dualboot Partners',
   },
   {
-    dates: 'Oct 2021',
+    dates: 'Nov2021 - Aug 2022',
+    position: 'Software engineer',
+    description:
+      "Contributed to a business entity management project, enhanced frontend functionality for a job platform project. Tech stack: React.js, Next.js, SASS, Redux, jQuery, MJML, Mailtrap.",
+    company: 'Resmedia',
+  },
+  {
+    dates: 'Jun2021 - Oct 2021',
     position: 'Web-developer',
     description:
       "Tech stack: Vue.js + Ejs. Project: business orders' and items' stock system. Fixed problems with frontend, new users' regitration.",
@@ -20,12 +27,6 @@ export const EXPERIENCES: IExperience[] = [
     company: 'Education',
     description:
       'Front-end courses (Youtube; Udemy; Freecodecamp; GeekBrains - web-development React, QA; Codewars), making pet projects',
-  },
-  {
-    dates: '2019 – 2020',
-    position: 'Bank representative',
-    company: 'Tinkoff',
-    description: 'Bank representative',
   },
   {
     dates: '2018 – 2020',
