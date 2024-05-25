@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       'Lev Kotman Frontend developer portfolio created with Next.JS and Typescript',
     siteName: 'FE portfolio',
-    url: 'http://localhost:3000/', // change to deployed url
+    url: 'https://frontend-portfolio-next.vercel.app/',
   },
 };
 
