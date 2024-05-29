@@ -20,3 +20,13 @@ export interface IContactsFromDB {
   weblinks: Array<IWeblink>;
   email: string;
 }
+
+export interface IProject {
+  link: string;
+  imgSrc: string;
+  alt: string;
+  width: number;
+  height: number;
+  projectText: string;
+  repo: string;
+}
