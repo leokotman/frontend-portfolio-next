@@ -35,7 +35,6 @@ body {
 
   .navbar {
     width: 100%;
-    height: var(--navbar-height);
   }
   .navbar-header {
     background-color: rgb(17, 0, 92);
