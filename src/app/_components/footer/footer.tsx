@@ -12,17 +12,21 @@ interface FooterParams {
 
 export default function Footer(params: FooterParams) {
   const { propClasses = '' } = params;
-  const { contacts } = useAppContext();
+  const { contacts, isLoading } = useAppContext();
 
   return (
     <div className={`${classes.footer} ${propClasses}`}>
       <div className="flex items-center">
         <MapPinIcon className="h-6 w-6" />
-        <Button color="teal">{contacts[0]?.address}</Button>
+        <Button color="teal">
+          {isLoading ? 'loading contacts' : contacts[0]?.address}
+        </Button>
       </div>
       <div className="flex items-center">
         <PhoneIcon className="h-6 w-6" />
-        <Button color="teal">{contacts[0]?.phone}</Button>
+        <Button color="teal">
+          {isLoading ? 'loading contacts' : contacts[0]?.phone}
+        </Button>
       </div>
     </div>
   );
