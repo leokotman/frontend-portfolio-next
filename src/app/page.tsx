@@ -13,7 +13,7 @@ export default function Home() {
         <h1 className="text-2xl mb-3">Lev Kotman</h1>
         <h2 className="text-xl mb-6">Front-end developer</h2>
         <p className="max-w-screen-md container mx-auto text-justify text-lg">
-          Experienced Front-end Developer with over 1.5 years of professional
+          Experienced Front-end Developer with over 3 years of professional
           experience specialising in dynamic interfaces. Skilled in delivering
           high-quality web applications with clean code for various clients.
           Started developer&apos;s career path in 2020. Love problem-solving,
