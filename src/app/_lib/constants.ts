@@ -12,11 +12,11 @@ export const EXPERIENCES: IExperience[] = [
     dates: 'Nov2021 - Aug 2022',
     position: 'Software engineer',
     description:
-      "Contributed to a business entity management project, enhanced frontend functionality for a job platform project. Tech stack: React.js, Next.js, SASS, Redux, jQuery, MJML, Mailtrap.",
+      'Contributed to a business entity management project, enhanced frontend functionality for a job platform project. Tech stack: React.js, Next.js, SASS, Redux, jQuery, MJML, Mailtrap.',
     company: 'Resmedia',
   },
   {
-    dates: 'Jun2021 - Oct 2021',
+    dates: 'Jun2021 - Nov 2021',
     position: 'Web-developer',
     description:
       "Tech stack: Vue.js + Ejs. Project: business orders' and items' stock system. Fixed problems with frontend, new users' regitration.",
@@ -49,13 +49,15 @@ export const EXPERIENCES: IExperience[] = [
 export const SKILLS = {
   hardSkills: [
     'HTML5',
-    'CSS3, SCSS',
+    'CSS3, SASS, JSS',
+    'Git',
     'JavaScript',
     'ReactJS',
     'Typescript',
     'State management (Redux/Zustand)',
     'RESTful APIs (Axios, React-query)',
     'CSS libraries/frameworks (MUI, Bootstrap)',
+    'Axios',
   ],
   softSkills: [
     'Analytical mind',
