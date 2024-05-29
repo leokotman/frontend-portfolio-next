@@ -6,7 +6,7 @@ import { useAppContext } from '../_components/context/context';
 import classes from './contacts.module.scss';
 
 export default function Contacts() {
-  const { contacts } = useAppContext();
+  const { contacts, isLoading } = useAppContext();
 
   return (
     <main className="container mx-auto text-center">
@@ -16,31 +16,41 @@ export default function Contacts() {
       <section className={`${classes.section} max-w-screen-lg mx-auto`}>
         <Card>
           <ul className="flex flex-col gap-4">
-            <li>
-              <Button color="teal">
-                <a href={`'tel:'${contacts[0]?.phone}`}>{contacts[0]?.phone}</a>
-              </Button>
-            </li>
-            <li>
-              <Button color="teal">
-                <a href={`'mailto:'${contacts[0]?.email}`}>
-                  {contacts[0]?.email}
-                </a>
-              </Button>
-            </li>
+            {isLoading ? (
+              'Loading...'
+            ) : (
+              <>
+                <li>
+                  <Button color="teal">
+                    <a href={`'tel:'${contacts[0]?.phone}`}>
+                      {contacts[0]?.phone}
+                    </a>
+                  </Button>
+                </li>
+                <li>
+                  <Button color="teal">
+                    <a href={`'mailto:'${contacts[0]?.email}`}>
+                      {contacts[0]?.email}
+                    </a>
+                  </Button>
+                </li>
+              </>
+            )}
           </ul>
         </Card>
         <Card>
           <ul className="flex flex-col gap-4">
-            {contacts[0]?.weblinks.map((link) => {
-              return (
-                <li key={link.name}>
-                  <Button color="indigo">
-                    <a href={`${link.link}`}>{link.name}</a>
-                  </Button>
-                </li>
-              );
-            })}
+            {isLoading
+              ? 'Loading...'
+              : contacts[0]?.weblinks.map((link) => {
+                  return (
+                    <li key={link.name}>
+                      <Button color="indigo">
+                        <a href={`${link.link}`}>{link.name}</a>
+                      </Button>
+                    </li>
+                  );
+                })}
           </ul>
         </Card>
         <Card

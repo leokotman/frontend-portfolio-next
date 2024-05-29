@@ -10,14 +10,17 @@ interface AppContextProviderParams {
 
 export const AppContext = createContext({
   contacts: [] as IContactsFromDB[],
+  isLoading: false as boolean,
 });
 
 export default function AppContextProvider(params: AppContextProviderParams) {
   const { children } = params;
-  const { data: contacts = [] } = useContactsQuery();
+  const { data: contacts = [], isLoading } = useContactsQuery();
 
   return (
-    <AppContext.Provider value={{ contacts }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ contacts, isLoading }}>
+      {children}
+    </AppContext.Provider>
   );
 }
 export function useAppContext() {

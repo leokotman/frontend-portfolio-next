@@ -1,4 +1,4 @@
-import { IExperience } from './types';
+import { IExperience, IProject } from './types';
 
 export const EXPERIENCES: IExperience[] = [
   {
@@ -67,7 +67,16 @@ export const SKILLS = {
   ],
 };
 
-export const PROJECTS = [
+export const PROJECTS: IProject[] = [
+  {
+    link: 'https://logic-kids.vercel.app/',
+    imgSrc: '9.png',
+    alt: 'Kids courses',
+    width: 1140,
+    height: 600,
+    projectText: 'Kids courses',
+    repo: 'https://github.com/leokotman/logic-kids',
+  },
   {
     link: 'https://leokotman.github.io/local_lang_vue/',
     imgSrc: '6.png',
@@ -75,6 +84,7 @@ export const PROJECTS = [
     width: 1140,
     height: 600,
     projectText: 'Serbian-English learning app',
+    repo: 'https://github.com/leokotman/local_lang_vue',
   },
   {
     link: 'https://leokotman.github.io/forum_lp/',
@@ -83,53 +93,81 @@ export const PROJECTS = [
     width: 1140,
     height: 600,
     projectText: 'Security Forum registration landing page',
+    repo: 'https://github.com/leokotman/forum_lp',
   },
   {
     link: 'https://leokotman.github.io/JesKotman-artist/',
     imgSrc: '2.png',
-    alt: 'project2-artists-page',
+    alt: "Artist's landing page",
     width: 1140,
     height: 600,
     projectText: "Artist's landing page",
+    repo: 'https://github.com/leokotman/JesKotman-artist',
   },
   {
     link: 'https://leokotman.github.io/4-HTML5-CSS3/',
     imgSrc: '1.png',
-    alt: 'project1-course-site',
+    alt: 'Website Landing page',
     width: 1140,
     height: 480,
     projectText: 'Website Landing page',
+    repo: 'https://github.com/leokotman/4-HTML5-CSS3',
   },
   {
     link: 'https://leokotman.github.io/rockstone-swiper/',
     imgSrc: '3.png',
-    alt: 'project3-mobile-React-app',
+    alt: 'Messages & Current time – Swiper React mobile app',
     width: 480,
     height: 350,
     projectText: 'Messages & Current time – Swiper React mobile app',
+    repo: 'https://github.com/leokotman/rockstone-swiper',
   },
   {
     link: 'https://leokotman.github.io/drum-kit/',
     imgSrc: '4.png',
-    alt: 'project4-drumkit-vanillajs',
+    alt: 'Play drums on Vanilla JS',
     width: 480,
     height: 350,
     projectText: 'Play drums on Vanilla JS',
+    repo: 'https://github.com/leokotman/drum-kit',
   },
   {
     link: 'https://leokotman.github.io/spa-portfolio2',
     imgSrc: '8.png',
-    alt: 'vuejs-spa-portfolio',
+    alt: 'VueJs SPA Portfolio (previous portfolio)',
     width: 480,
     height: 350,
     projectText: 'VueJs SPA Portfolio (previous portfolio)',
+    repo: 'https://github.com/leokotman/spa-portfolio2',
   },
   {
     link: 'https://leokotman.github.io/My-portfolio/',
     imgSrc: '5.png',
-    alt: 'project5-first-portfolio',
+    alt: 'First Portfolio',
     width: 480,
     height: 350,
     projectText: 'First Portfolio',
+    repo: 'https://github.com/leokotman/My-portfolio',
+  },
+];
+
+export const GAMES: IProject[] = [
+  {
+    link: 'https://leokotman.github.io/monster-game/',
+    imgSrc: 'game-monster.png',
+    alt: 'Beat the monster',
+    width: 400,
+    height: 400,
+    projectText: 'Beat the monster',
+    repo: 'https://github.com/leokotman/monster-game',
+  },
+  {
+    link: 'https://leokotman.github.io/doodle-jump/',
+    imgSrc: 'game-jump.png',
+    alt: 'Doodle jump',
+    width: 400,
+    height: 400,
+    projectText: 'Doodle jump',
+    repo: 'https://github.com/leokotman/doodle-jump',
   },
 ];
