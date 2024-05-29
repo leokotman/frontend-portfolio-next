@@ -5,6 +5,7 @@ import { Navbar } from './_components/navbar/navbar';
 import { homeRoutes } from './_lib/routes';
 import Footer from './_components/footer/footer';
 import AppContextProvider from './_components/context/context';
+import ReactQueryProvider from './_lib/queryProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,17 +30,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <AppContextProvider>
-          <header className="navbar navbar-header">
-            <Navbar routes={homeRoutes} />
-          </header>
-          {children}
-          <footer className="navbar navbar-footer">
-            <Footer />
-          </footer>
-        </AppContextProvider>
-      </body>
+      <ReactQueryProvider>
+        <body className={inter.className}>
+          <AppContextProvider>
+            <header className="navbar navbar-header">
+              <Navbar routes={homeRoutes} />
+            </header>
+            {children}
+            <footer className="navbar navbar-footer">
+              <Footer />
+            </footer>
+          </AppContextProvider>
+        </body>
+      </ReactQueryProvider>
     </html>
   );
 }
