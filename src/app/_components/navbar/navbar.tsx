@@ -8,11 +8,12 @@ import { useState } from 'react';
 
 interface NavbarParams {
   routes: Array<IRoute>;
+  iconColor?: 'white' | 'black' | 'blue';
 }
 
 export function Navbar(params: NavbarParams) {
   const pathname = usePathname();
-  const { routes } = params;
+  const { routes, iconColor = 'white' } = params;
   const classes = styles;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,10 +28,10 @@ export function Navbar(params: NavbarParams) {
     <nav className={`flex sm:block ${classes.nav}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="none"
+        fill={iconColor ?? `currentColor`}
         viewBox="0 0 24 24"
         strokeWidth={1.5}
-        stroke="white"
+        stroke={iconColor ?? `currentColor`}
         className="w-6 h-6 sm:hidden"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
