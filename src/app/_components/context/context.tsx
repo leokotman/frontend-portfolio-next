@@ -1,6 +1,6 @@
 'use client';
 
-import { useContacts } from '@/app/_lib/hooks';
+import { useContactsQuery } from '@/app/_lib/hooks';
 import { IContactsFromDB } from '@/app/_lib/types';
 import { ReactNode, useContext, createContext } from 'react';
 
@@ -14,7 +14,7 @@ export const AppContext = createContext({
 
 export default function AppContextProvider(params: AppContextProviderParams) {
   const { children } = params;
-  const { contacts } = useContacts();
+  const { data: contacts = [] } = useContactsQuery();
 
   return (
     <AppContext.Provider value={{ contacts }}>{children}</AppContext.Provider>
