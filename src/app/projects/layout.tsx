@@ -8,7 +8,7 @@ export default function ProjectsLayout({
 }) {
   return (
     <main>
-      <Navbar routes={projectsRoutes} />
+      <Navbar routes={projectsRoutes} iconColor="black" />
       {children}
     </main>
   );

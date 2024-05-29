@@ -10,7 +10,7 @@ export const EXPERIENCES: IExperience[] = [
   },
   {
     dates: 'Nov2021 - Aug 2022',
-    position: 'Software engineer',
+    position: 'Frontend developer',
     description:
       'Contributed to a business entity management project, enhanced frontend functionality for a job platform project. Tech stack: React.js, Next.js, SASS, Redux, jQuery, MJML, Mailtrap.',
     company: 'Resmedia',
