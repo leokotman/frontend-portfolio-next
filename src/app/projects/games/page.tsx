@@ -1,32 +1,12 @@
-import Image from 'next/image';
+import ProjectLayout from '@/app/_components/projectLayout/projectLayout';
+import { GAMES } from '@/app/_lib/constants';
 
 export default function Games() {
   return (
     <section className="flex flex-row gap-6 justify-center">
-      <a
-        href="https://leokotman.github.io/monster-game/"
-        target="_blank"
-        title="Beat the monster"
-      >
-        <Image
-          src="/img/game-monster.png"
-          alt="monster-game"
-          height="400"
-          width="400"
-        />
-      </a>
-      <a
-        href="https://leokotman.github.io/doodle-jump/"
-        target="_blank"
-        title="Doodle jump"
-      >
-        <Image
-          src="/img/game-jump.png"
-          alt="jump-game"
-          height="400"
-          width="400"
-        />
-      </a>
+      {GAMES.map((game) => {
+        return <ProjectLayout key={game.imgSrc} project={game} />;
+      })}
     </section>
   );
 }

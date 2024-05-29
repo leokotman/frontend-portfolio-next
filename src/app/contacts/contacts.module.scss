@@ -7,3 +7,13 @@
 .map {
   grid-area: 2 / 1 / 3 / 3;
 }
+
+@media screen and (max-width: 640px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+  .section > * {
+    width: 100%;
+  }
+}
