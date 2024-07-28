@@ -69,6 +69,15 @@ export const SKILLS = {
 
 export const PROJECTS: IProject[] = [
   {
+    link: 'https://next-gitlog.vercel.app/',
+    imgSrc: '10.png',
+    alt: 'A list of commits from github',
+    width: 1140,
+    height: 600,
+    projectText: 'Gitlog - list of github commits',
+    repo: 'https://github.com/leokotman/next-gitlog',
+  },
+  {
     link: 'https://logic-kids.vercel.app/',
     imgSrc: '9.png',
     alt: 'Kids courses',
