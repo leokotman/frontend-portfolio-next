@@ -3,50 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 240, 240, 240;
-  --background-end-rgb: 255, 255, 255;
+  --beige1: rgba(245, 237, 226, 1);
+  --beige2: rgba(238, 229, 217, 1);
+  --light-blue: rgba(119, 144, 237, 1);
+  --heading-color: rgb(41, 38, 33);
+
+  --background-start-rgb: var(--beige1);
+  --background-end-rgb: var(--beige2);
+  --background-footer: rgba(41, 38, 33, 0.3);
   --navbar-height: 5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  min-height: 100vh;
+    167.86deg,
+    var(--background-start-rgb) 25.59%,
+    var(--background-end-rgb) 100%
+  );
 
-  h1,
-  h2,
-  p {
-    font-family: 'Open Sans', sans-serif;
-  }
+  min-height: 100vh;
 
   .navbar {
     width: 100%;
   }
-  .navbar-header {
-    background-color: rgb(17, 0, 92);
-  }
+
   .navbar-footer {
-    background-color: rgb(17, 0, 92, 0.3);
+    background-color: var(--background-footer);
   }
 
   main {
     height: calc(100vh - var(--navbar-height) * 2);
     overflow: auto;
   }
+}
+h1,
+h2 {
+  color: var(--heading-color);
 }
 
 @layer utilities {
