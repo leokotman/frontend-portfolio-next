@@ -21,14 +21,14 @@ export default function Contacts() {
             ) : (
               <>
                 <li>
-                  <Button color="teal">
+                  <Button color="blue">
                     <a href={`'tel:'${contacts[0]?.phone}`}>
                       {contacts[0]?.phone}
                     </a>
                   </Button>
                 </li>
                 <li>
-                  <Button color="teal">
+                  <Button color="blue">
                     <a href={`'mailto:'${contacts[0]?.email}`}>
                       {contacts[0]?.email}
                     </a>
@@ -45,7 +45,7 @@ export default function Contacts() {
               : contacts[0]?.weblinks.map((link) => {
                   return (
                     <li key={link.name}>
-                      <Button color="indigo">
+                      <Button color="blue">
                         <a href={`${link.link}`}>{link.name}</a>
                       </Button>
                     </li>
