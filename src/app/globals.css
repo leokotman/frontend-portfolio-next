@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --beige1: rgba(245, 237, 226, 1);
-  --beige2: rgba(238, 229, 217, 1);
-  --light-blue: rgba(119, 144, 237, 1);
+  --beige1: rgb(245, 237, 226);
+  --beige2: rgb(238, 229, 217);
+  --light-blue: rgb(119, 144, 237);
   --heading-color: rgb(41, 38, 33);
 
   --background-start-rgb: var(--beige1);
@@ -39,6 +39,13 @@ body {
 h1,
 h2 {
   color: var(--heading-color);
+  font-weight: 600;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
 }
 
 @layer utilities {
