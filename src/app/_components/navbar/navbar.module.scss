@@ -23,7 +23,7 @@
   display: inline-block;
   color: black;
   background-color: var(--beige1);
-  border-radius: 5px;
+  border-radius: 14px;
   box-sizing: border-box;
   border: 1px solid transparent;
   box-shadow: 7px 6px 6px 0px rgba(142, 129, 111, 0.27),
@@ -44,8 +44,6 @@
 .active {
   background-color: var(--light-blue);
   color: white;
-  // border-color: #f1a80a;
-  border-radius: 5px;
 }
 
 @media screen and (max-width: 640px) {
