@@ -140,24 +140,6 @@ export const PROJECTS: IProject[] = [
     projectText: 'Play drums on Vanilla JS',
     repo: 'https://github.com/leokotman/drum-kit',
   },
-  {
-    link: 'https://leokotman.github.io/spa-portfolio2',
-    imgSrc: '8.png',
-    alt: 'VueJs SPA Portfolio (previous portfolio)',
-    width: 480,
-    height: 350,
-    projectText: 'VueJs SPA Portfolio (previous portfolio)',
-    repo: 'https://github.com/leokotman/spa-portfolio2',
-  },
-  {
-    link: 'https://leokotman.github.io/My-portfolio/',
-    imgSrc: '5.png',
-    alt: 'First Portfolio',
-    width: 480,
-    height: 350,
-    projectText: 'First Portfolio',
-    repo: 'https://github.com/leokotman/My-portfolio',
-  },
 ];
 
 export const GAMES: IProject[] = [
