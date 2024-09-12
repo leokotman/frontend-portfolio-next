@@ -6,5 +6,5 @@ interface ChipParams {
 
 export function Chip(props: ChipParams) {
   const { text } = props;
-  return <span className={styles.chip}>{text}</span>;
+  return <div className={styles.chip}>{text}</div>;
 }
