@@ -18,13 +18,13 @@ export default function Footer(params: FooterParams) {
     <div className={`${classes.footer} ${propClasses}`}>
       <div className="flex items-center">
         <MapPinIcon className="h-6 w-6" />
-        <Button color="teal">
+        <Button color="blue">
           {isLoading ? 'loading contacts' : contacts[0]?.address}
         </Button>
       </div>
       <div className="flex items-center">
         <PhoneIcon className="h-6 w-6" />
-        <Button color="teal">
+        <Button color="blue">
           {isLoading ? 'loading contacts' : contacts[0]?.phone}
         </Button>
       </div>
