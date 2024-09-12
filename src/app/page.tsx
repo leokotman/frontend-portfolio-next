@@ -37,7 +37,7 @@ export default function Home() {
       <section className="container mx-auto max-w-screen-lg flex flex-wrap justify-around gap-10 py-4">
         <Card propsClasses="flex flex-wrap justify-between gap-y-6">
           <h2 className="text-xl text-center w-full">Skills</h2>
-          <div className="flex justify-between gap-20">
+          <div className="flex flex-wrap justify-between gap-20 lg:flex-nowrap">
             <Card>
               <ul className="flex flex-col gap-4">
                 <span className="flex gap-4">
@@ -52,7 +52,7 @@ export default function Home() {
               </ul>
             </Card>
             <div
-              className="h-full w-1.5 rounded-md"
+              className="h-full w-1.5 rounded-md lg:block hidden"
               style={{ backgroundColor: 'rgba(133, 62, 222, 0.6)' }}
             />
             <Card>
