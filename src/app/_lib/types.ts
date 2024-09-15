@@ -21,6 +21,15 @@ export interface IContactsFromDB {
   email: string;
 }
 
+export interface IAboutMe {
+  about: string;
+}
+
+export interface ISkills {
+  hardSkills: Array<string>;
+  softSkills: Array<string>;
+}
+
 export interface IProject {
   link: string;
   imgSrc: string;
@@ -29,4 +38,9 @@ export interface IProject {
   height: number;
   projectText: string;
   repo: string;
+}
+
+export interface IProjectsFromDB {
+  websites: Array<IProject>;
+  games: Array<IProject>;
 }

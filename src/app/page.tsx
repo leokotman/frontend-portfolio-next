@@ -1,14 +1,26 @@
+'use client';
+
 import {
   ChatBubbleLeftRightIcon,
   CodeBracketIcon,
 } from '@heroicons/react/24/outline';
 import Card from './_components/card/card';
-import { EXPERIENCES, SKILLS } from './_lib/constants';
 import classes from './page.module.scss';
 import Image from 'next/image';
 import { Chip } from './_components/chip/chip';
+import { useAppContext } from './_components/context/context';
+import { Loader } from './_components/loader/loader';
 
 export default function Home() {
+  const {
+    experiences,
+    isLoadingExperiences,
+    about,
+    isLoadingAbout,
+    skills,
+    isLoadingSkills,
+  } = useAppContext();
+
   return (
     <main className="p-4">
       <section className="container mx-auto text-center lg:grid lg:grid-cols-2 lg:grid-flow-col flex flex-wrap">
@@ -16,11 +28,7 @@ export default function Home() {
           <h1 className="text-2xl mb-3">Lev Kotman</h1>
           <h2 className="text-xl mb-6">Front-end developer</h2>
           <p className="max-w-screen-md container mx-auto text-justify text-lg">
-            Experienced Front-end Developer with over 3 years of professional
-            experience specialising in dynamic interfaces.
-            <br /> Skilled in delivering high-quality web applications with
-            clean code for various clients. Started developer&apos;s career path
-            in 2020. Love problem-solving, making projects better.
+            {isLoadingAbout ? <Loader /> : about.about}
           </p>
         </article>
         <Image
@@ -44,11 +52,15 @@ export default function Home() {
                   <h3 className="text-lg">Hard skills</h3>
                   <CodeBracketIcon className="h-6 w-6 stroke-indigo-900"></CodeBracketIcon>
                 </span>
-                {SKILLS.hardSkills.map((skill, index) => (
-                  <li key={index} className={classes.point}>
-                    <Chip text={skill} />
-                  </li>
-                ))}
+                {isLoadingSkills ? (
+                  <Loader />
+                ) : (
+                  skills.hardSkills.map((skill, index) => (
+                    <li key={index} className={classes.point}>
+                      <Chip text={skill} />
+                    </li>
+                  ))
+                )}
               </ul>
             </Card>
             <div
@@ -62,11 +74,15 @@ export default function Home() {
                   <ChatBubbleLeftRightIcon className="h-6 w-6 stroke-indigo-900"></ChatBubbleLeftRightIcon>
                 </span>
 
-                {SKILLS.softSkills.map((skill, index) => (
-                  <li key={index} className={classes.point}>
-                    <Chip text={skill} />
-                  </li>
-                ))}
+                {isLoadingSkills ? (
+                  <Loader />
+                ) : (
+                  skills.softSkills.map((skill, index) => (
+                    <li key={index} className={classes.point}>
+                      <Chip text={skill} />
+                    </li>
+                  ))
+                )}
               </ul>
             </Card>
           </div>
@@ -74,17 +90,21 @@ export default function Home() {
         <Card>
           <h2 className="text-xl text-center">Experiences</h2>
           <ul className="flex flex-col gap-4">
-            {EXPERIENCES.map((experience) => {
-              return (
-                <li key={experience.dates} className={classes.experiences}>
-                  <p>{experience.dates}</p>
-                  <p>
-                    <b>{experience?.position}</b> {experience?.company}
-                  </p>
-                  <p>{experience.description}</p>
-                </li>
-              );
-            })}
+            {isLoadingExperiences ? (
+              <Loader />
+            ) : (
+              experiences.map((experience) => {
+                return (
+                  <li key={experience.dates} className={classes.experiences}>
+                    <p>{experience.dates}</p>
+                    <p>
+                      <b>{experience?.position}</b> {experience?.company}
+                    </p>
+                    <p>{experience.description}</p>
+                  </li>
+                );
+              })
+            )}
           </ul>
           <div className="flex"></div>
         </Card>
