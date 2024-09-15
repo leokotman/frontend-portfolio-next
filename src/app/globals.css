@@ -12,6 +12,7 @@
   --background-end-rgb: var(--beige2);
   --background-footer: rgba(41, 38, 33, 0.3);
   --navbar-height: 5rem;
+  --light-blue: rgba(137, 132, 222, 0.4962185557816877);
 }
 
 body {

@@ -3,10 +3,11 @@
 import { Button } from '../_components/button/button';
 import Card from '../_components/card/card';
 import { useAppContext } from '../_components/context/context';
+import { Loader } from '../_components/loader/loader';
 import classes from './contacts.module.scss';
 
 export default function Contacts() {
-  const { contacts, isLoading } = useAppContext();
+  const { contacts, isLoadingContacts } = useAppContext();
 
   return (
     <main className="container mx-auto text-center">
@@ -16,21 +17,19 @@ export default function Contacts() {
       <section className={`${classes.section} max-w-screen-lg mx-auto`}>
         <Card>
           <ul className="flex flex-col gap-4">
-            {isLoading ? (
-              'Loading...'
+            {isLoadingContacts ? (
+              <Loader />
             ) : (
               <>
                 <li>
                   <Button color="blue">
-                    <a href={`'tel:'${contacts[0]?.phone}`}>
-                      {contacts[0]?.phone}
-                    </a>
+                    <a href={`'tel:'${contacts?.phone}`}>{contacts?.phone}</a>
                   </Button>
                 </li>
                 <li>
                   <Button color="blue">
-                    <a href={`'mailto:'${contacts[0]?.email}`}>
-                      {contacts[0]?.email}
+                    <a href={`'mailto:'${contacts?.email}`}>
+                      {contacts?.email}
                     </a>
                   </Button>
                 </li>
@@ -40,17 +39,19 @@ export default function Contacts() {
         </Card>
         <Card>
           <ul className="flex flex-col gap-4">
-            {isLoading
-              ? 'Loading...'
-              : contacts[0]?.weblinks.map((link) => {
-                  return (
-                    <li key={link.name}>
-                      <Button color="blue">
-                        <a href={`${link.link}`}>{link.name}</a>
-                      </Button>
-                    </li>
-                  );
-                })}
+            {isLoadingContacts ? (
+              <Loader />
+            ) : (
+              contacts?.weblinks.map((link) => {
+                return (
+                  <li key={link.name}>
+                    <Button color="blue">
+                      <a href={`${link.link}`}>{link.name}</a>
+                    </Button>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </Card>
         <Card
