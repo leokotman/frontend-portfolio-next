@@ -15,7 +15,7 @@ export function Button(params: IButtonParams) {
   return (
     <>
       <button
-        className={`border  text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none focus:outline-none focus:shadow-outline ${styles[color]}`}
+        className={`border text-indigo-900 rounded-md px-4 py-2 m-2 transition duration-500 ease select-none focus:outline-none focus:shadow-outline ${styles[color]}`}
       >
         {children}
       </button>
