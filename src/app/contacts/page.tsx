@@ -23,12 +23,12 @@ export default function Contacts() {
               <>
                 <li>
                   <Button color="blue">
-                    <a href={`'tel:'${contacts?.phone}`}>{contacts?.phone}</a>
+                    <a href={`tel:${contacts?.phone}`}>{contacts?.phone}</a>
                   </Button>
                 </li>
                 <li>
                   <Button color="blue">
-                    <a href={`'mailto:'${contacts?.email}`}>
+                    <a href={`mailto:${contacts?.email}`}>
                       {contacts?.email}
                     </a>
                   </Button>

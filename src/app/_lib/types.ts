@@ -14,6 +14,7 @@ interface IWeblink {
   link: string;
   name: string;
 }
+
 export interface IContactsFromDB {
   address: string;
   phone: string;
@@ -25,8 +26,19 @@ export interface IAboutMe {
   about: string;
 }
 
+export type HardSkillCategory =
+  | 'languages'
+  | 'frameworks'
+  | 'tools'
+  | 'backend';
+
+export interface IHardSkill {
+  name: string;
+  category: HardSkillCategory;
+}
+
 export interface ISkills {
-  hardSkills: Array<string>;
+  hardSkills: Array<IHardSkill>;
   softSkills: Array<string>;
 }
 
@@ -44,3 +56,4 @@ export interface IProjectsFromDB {
   websites: Array<IProject>;
   games: Array<IProject>;
 }
+
