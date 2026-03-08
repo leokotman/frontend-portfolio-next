@@ -12,6 +12,7 @@ import { useAppContext } from './_components/context/context';
 import { Loader } from './_components/loader/loader';
 import { getStartYearFromDates } from './_lib/helpers';
 import type { IHardSkill } from './_lib/types';
+import DailyAdviceChat from './_components/dailyAdviceChat/dailyAdviceChat';
 
 export default function Home() {
   const {
@@ -58,6 +59,7 @@ export default function Home() {
           <p className="max-w-screen-md container mx-auto text-justify text-lg">
             {isLoadingAbout ? <Loader /> : about.about}
           </p>
+          <DailyAdviceChat />
         </article>
         <Image
           src="/img/main-page-bg.png"
