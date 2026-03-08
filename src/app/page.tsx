@@ -10,6 +10,8 @@ import Image from 'next/image';
 import { Chip } from './_components/chip/chip';
 import { useAppContext } from './_components/context/context';
 import { Loader } from './_components/loader/loader';
+import { getStartYearFromDates } from './_lib/helpers';
+import type { IHardSkill } from './_lib/types';
 
 export default function Home() {
   const {
@@ -20,6 +22,32 @@ export default function Home() {
     skills,
     isLoadingSkills,
   } = useAppContext();
+
+  const hardSkillsByCategory = skills.hardSkills.reduce<Record<string, string[]>>(
+    (acc: Record<string, string[]>, { name, category }: IHardSkill) => {
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(name);
+      return acc;
+    },
+    {}
+  );
+
+  const workExperiences = experiences.filter(
+    (experience) => experience.company !== 'Education'
+  );
+  const educationExperiences = experiences.filter(
+    (experience) => experience.company === 'Education'
+  );
+
+  const sortedWorkExperiences = [...workExperiences].sort(
+    (a, b) => getStartYearFromDates(b.dates) - getStartYearFromDates(a.dates)
+  );
+  const sortedEducationExperiences = [...educationExperiences].sort(
+    (a, b) =>
+      getStartYearFromDates(b.dates) - getStartYearFromDates(a.dates)
+  );
 
   return (
     <main className="p-4">
@@ -55,11 +83,68 @@ export default function Home() {
                 {isLoadingSkills ? (
                   <Loader />
                 ) : (
-                  skills.hardSkills.map((skill, index) => (
-                    <li key={index} className={classes.point}>
-                      <Chip text={skill} />
-                    </li>
-                  ))
+                  <>
+                    {hardSkillsByCategory.languages &&
+                      hardSkillsByCategory.languages.length > 0 && (
+                        <li className={classes.point}>
+                          <div className="flex flex-wrap gap-2 items-center">
+                            <span className="font-semibold mr-2">
+                              Languages:
+                            </span>
+                            {hardSkillsByCategory.languages.map(
+                              (skill: string) => (
+                                <Chip key={skill} text={skill} />
+                              )
+                            )}
+                          </div>
+                        </li>
+                      )}
+                    {hardSkillsByCategory.frameworks &&
+                      hardSkillsByCategory.frameworks.length > 0 && (
+                        <li className={classes.point}>
+                          <div className="flex flex-wrap gap-2 items-center">
+                            <span className="font-semibold mr-2">
+                              Frameworks:
+                            </span>
+                            {hardSkillsByCategory.frameworks.map(
+                              (skill: string) => (
+                                <Chip key={skill} text={skill} />
+                              )
+                            )}
+                          </div>
+                        </li>
+                      )}
+                    {hardSkillsByCategory.tools &&
+                      hardSkillsByCategory.tools.length > 0 && (
+                        <li className={classes.point}>
+                          <div className="flex flex-wrap gap-2 items-center">
+                            <span className="font-semibold mr-2">
+                              Tools:
+                            </span>
+                            {hardSkillsByCategory.tools.map(
+                              (skill: string) => (
+                                <Chip key={skill} text={skill} />
+                              )
+                            )}
+                          </div>
+                        </li>
+                      )}
+                    {hardSkillsByCategory.backend &&
+                      hardSkillsByCategory.backend.length > 0 && (
+                        <li className={classes.point}>
+                          <div className="flex flex-wrap gap-2 items-center">
+                            <span className="font-semibold mr-2">
+                              Backend / APIs:
+                            </span>
+                            {hardSkillsByCategory.backend.map(
+                              (skill: string) => (
+                                <Chip key={skill} text={skill} />
+                              )
+                            )}
+                          </div>
+                        </li>
+                      )}
+                  </>
                 )}
               </ul>
             </Card>
@@ -77,11 +162,13 @@ export default function Home() {
                 {isLoadingSkills ? (
                   <Loader />
                 ) : (
-                  skills.softSkills.map((skill, index) => (
-                    <li key={index} className={classes.point}>
-                      <Chip text={skill} />
-                    </li>
-                  ))
+                  skills.softSkills.map(
+                    (skill: string, index: number) => (
+                      <li key={index} className={classes.point}>
+                        <Chip text={skill} />
+                      </li>
+                    )
+                  )
                 )}
               </ul>
             </Card>
@@ -89,23 +176,48 @@ export default function Home() {
         </Card>
         <Card>
           <h2 className="text-xl text-center">Experiences</h2>
-          <ul className="flex flex-col gap-4">
-            {isLoadingExperiences ? (
+          {isLoadingExperiences ? (
+            <ul className="flex flex-col gap-4">
               <Loader />
-            ) : (
-              experiences.map((experience) => {
-                return (
-                  <li key={experience.dates} className={classes.experiences}>
-                    <p>{experience.dates}</p>
-                    <p>
-                      <b>{experience?.position}</b> {experience?.company}
-                    </p>
-                    <p>{experience.description}</p>
-                  </li>
-                );
-              })
-            )}
-          </ul>
+            </ul>
+          ) : (
+            <>
+              <h3 className="text-lg mt-4">Work experience</h3>
+              <ul className="flex flex-col gap-4">
+                {sortedWorkExperiences.map((experience) => {
+                  return (
+                    <li
+                      key={`${experience.dates}-${experience.company}-${experience.position}`}
+                      className={classes.experiences}
+                    >
+                      <p>{experience.dates}</p>
+                      <p>
+                        <b>{experience?.position}</b> {experience?.company}
+                      </p>
+                      <p>{experience.description}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+              <h3 className="text-lg mt-6">Education</h3>
+              <ul className="flex flex-col gap-4">
+                {sortedEducationExperiences.map((experience) => {
+                  return (
+                    <li
+                      key={`${experience.dates}-${experience.company}-${experience.position}`}
+                      className={classes.experiences}
+                    >
+                      <p>{experience.dates}</p>
+                      <p>
+                        <b>{experience?.position}</b> {experience?.company}
+                      </p>
+                      <p>{experience.description}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          )}
           <div className="flex"></div>
         </Card>
       </section>
