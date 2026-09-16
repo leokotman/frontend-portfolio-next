@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../card/card';
 
 type Message = {
@@ -24,15 +24,25 @@ const getRandomOpeningPrompt = () =>
   openingPrompts[Math.floor(Math.random() * openingPrompts.length)];
 
 export default function DailyAdviceChat() {
-  const initialPrompt = useMemo(() => getRandomOpeningPrompt(), []);
-
+  // Use a deterministic initial message for SSR to avoid hydration
+  // mismatch (React errors #425/#418/#423). Randomize client-side only.
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 0,
       role: 'assistant',
-      text: initialPrompt,
+      text: openingPrompts[0],
     },
   ]);
+
+  useEffect(() => {
+    setMessages([
+      {
+        id: 0,
+        role: 'assistant',
+        text: getRandomOpeningPrompt(),
+      },
+    ]);
+  }, []);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -75,6 +85,7 @@ export default function DailyAdviceChat() {
       setShowWarning(true);
     }
 
+    // TODO: move out to a fetch function
     try {
       const response = await fetch('/api/ai/daily-advice', {
         method: 'POST',

@@ -14,6 +14,10 @@ import { getStartYearFromDates } from './_lib/helpers';
 import type { IHardSkill } from './_lib/types';
 import DailyAdviceChat from './_components/dailyAdviceChat/dailyAdviceChat';
 
+// Client components can only read NEXT_PUBLIC_* vars.
+// Set NEXT_PUBLIC_SHOW_AI_CHAT=false in Vercel Production to hide it.
+const showAiChat = process.env.NEXT_PUBLIC_SHOW_AI_CHAT !== 'false';
+
 export default function Home() {
   const {
     experiences,
@@ -59,7 +63,7 @@ export default function Home() {
           <p className="max-w-screen-md container mx-auto text-justify text-lg">
             {isLoadingAbout ? <Loader /> : about.about}
           </p>
-          <DailyAdviceChat />
+          {showAiChat && <DailyAdviceChat />}
         </article>
         <Image
           src="/img/main-page-bg.png"
