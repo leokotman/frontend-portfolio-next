@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
+// TypeScript does not resolve CSS side-effect imports without a stylesheet declaration.
+// Next.js processes this import at build time.
+// @ts-expect-error -- handled by Next.js CSS processing
 import './globals.css';
 import { Navbar } from './_components/navbar/navbar';
 import { homeRoutes } from './_lib/routes';

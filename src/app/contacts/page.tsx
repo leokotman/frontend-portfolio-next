@@ -21,16 +21,16 @@ export default function Contacts() {
               <Loader />
             ) : (
               <>
+                {contacts?.phone && (
+                  <li>
+                    <Button color="blue">
+                      <a href={`tel:${contacts?.phone}`}>{contacts?.phone}</a>
+                    </Button>
+                  </li>
+                )}
                 <li>
                   <Button color="blue">
-                    <a href={`tel:${contacts?.phone}`}>{contacts?.phone}</a>
-                  </Button>
-                </li>
-                <li>
-                  <Button color="blue">
-                    <a href={`mailto:${contacts?.email}`}>
-                      {contacts?.email}
-                    </a>
+                    <a href={`mailto:${contacts?.email}`}>{contacts?.email}</a>
                   </Button>
                 </li>
               </>

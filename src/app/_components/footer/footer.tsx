@@ -24,10 +24,14 @@ export default function Footer(params: FooterParams) {
         </Button>
       </div>
       <div className="flex items-center">
-        <PhoneIcon className="h-6 w-6" />
-        <Button color="blue">
-          {isLoadingContacts ? <Loader /> : contacts?.phone}
-        </Button>
+        {contacts?.phone && (
+          <>
+            <PhoneIcon className="h-6 w-6" />
+            <Button color="blue">
+              {isLoadingContacts ? <Loader /> : contacts?.phone}
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );
